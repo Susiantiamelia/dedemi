@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if(profileData) { %>
+        <label>Full Name</label><br>
+        <p><%=profileData.fullName%></p>
+        <br>
+        <br>
+        <label>Date Of Birth</label><br>
+        <p><%=profileData.changeFormat%></p>
+        <br>
+        <br>
+        <label>Adress</label><br>
+        <p><%=profileData.adress%></p>
+        <br>
+        <br>
+        <label>BackGround</label><br>
+        <p><%=profileData.background%></p>
+        <br>
+        <br>
+        <a href="/user/edit">
+            <button>Edit Profile</button>
+        </a>
+        <a href="/user/logout">
+            <button>Log Out</button>
+        </a>
+        <a href="/user/deleteAccount">
+            <button>Delete Account</button>
+        </a>
+    <% } else { %>
+        <h3>You Dont Have Any Profile Yet</h3>
+        <a href="/user/addProfile">
+            <button>addProfile</button>
+        </a>
+        <%} %> 
+</body>
+</html>

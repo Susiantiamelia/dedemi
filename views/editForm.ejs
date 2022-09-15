@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/user/edit" method="post">
+        <label>Full Name</label><br>
+        <br>
+        <input type="text" name="fullName" value="<%=profileData.fullName%>">
+        <br>
+        <br>
+        <label>Birth Date</label>
+        <br>
+        <input type="date" name="dateOfBirth" value="<%=profileData.getDate()%>">
+        <br>
+        <br>
+        <label>Adress</label>
+        <br>
+        <input type="text" name="adress" value="<%=profileData.adress%>">
+        <br>
+        <br>
+        <label>BackGround</label>
+        <br>
+        <input type="text" name="background" value="<%=profileData.background%>">
+        <br>
+        <br>
+        <input type="submit" value="Save Changes">
+    </form>
+</body>
+</html>

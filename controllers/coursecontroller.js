@@ -64,5 +64,8 @@ class CourseController {
     static detailCourse(req, res) {
 
     }
+    static renderChat(req,res) {
+        res.render('chatroom')
+    }
 }
 module.exports = CourseController

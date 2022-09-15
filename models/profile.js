@@ -15,12 +15,57 @@ module.exports = (sequelize, DataTypes) => {
       })
       // define association here
     }
+    getDate() {
+      let convertDate = this.dateOfBirth.toISOString().slice(0,10)
+      return convertDate
+    }
+    get changeFormat() {
+      const format = { day: "numeric", month: "long", year: "numeric" };
+      const date = this.dateOfBirth.toLocaleDateString('id-ID', format);
+      return date;
+    }
   }
   Profile.init({
-    fullName: DataTypes.STRING,
-    dateOfBirth: DataTypes.DATE,
-    adress: DataTypes.STRING,
-    background: DataTypes.STRING
+    fullName: {
+      type : DataTypes.STRING,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : 'Full Name Cannot Be Empty'
+        }
+      }
+    },
+    dateOfBirth: {
+      type : DataTypes.DATE,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : 'Please Insert Your BirthDay!'
+        }
+      }
+    },
+    adress: {
+      type : DataTypes.STRING,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : 'Please Insert Your Address'
+        }
+      }
+    },
+    background: {
+      type : DataTypes.STRING,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : 'Please tell us your background'
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Profile',

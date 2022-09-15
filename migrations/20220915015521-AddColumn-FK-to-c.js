@@ -7,7 +7,8 @@ module.exports = {
       references : {
         model : "Courses",
         key : "id"
-      }
+      },
+      onDelete : 'cascade'
     })
     /**
      * Add altering commands here.
