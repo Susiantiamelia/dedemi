@@ -27,9 +27,27 @@
 </head>
 
 <body>
-    <a href="/course/add" ><button>Add Course</button></a>
+    <% if(data.user.role === "Instructor") { %>
+        <a href="/course/add"><button>Add Course</button></a>
+    <% } %>
 
     <h2>View All Course</h2>
+    <form action="/course/all" method="get">
+        <label for="search">Search course:</label><br>
+        <input type="search" id="search" name="search">
+        <input type="submit" value="search">
+      </form>
+
+      <form action="/course/all" method="get">
+      <select name="sort">
+        <option value="" selected disabled>-- select--</option>
+        <option value="History">History</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="Geography">Geography</option>
+        <option value="Biology">Biology</option>
+        <input type="submit" value="sort">
+      </select>
+    </form>
     <table>
         <tr>
             <th>No.</th>
@@ -38,15 +56,20 @@
             <th>Category</th>
             <th>Action</th>
         </tr>
-        <% course.forEach((element,index) => { %>
+        <% data.course.forEach((element,index) => { %>
             <tr>
                 <td><%= index + 1 %> </td>
                 <td><%= element.name %></td>
-                <td><%= element.duration %></td>
+                <td><%= converttime(element.duration) %></td>
                 <td><%= element.category %></td>
                 <td>
-                    <% if(user.role === "Student") { %>
-                        <a href="/course/<%=element.id%>/subscribe"><button>Subscribe</button></a>
+                    <% if(data.user.role === "Student") { %>
+                      
+                        <% if(data.courseId.includes(element.id)){ %>
+                            <p>subscribed</p>
+                            <% } else { %>
+                                <a href="/course/<%=element.id%>/subscribe"><button>Subscribe</button></a>
+                            <% } %>    
                     <% } else { %>
                         <a href="/course/<%=element.id%>/edit"><button>Edit Course</button></a>
                      <% } %> 

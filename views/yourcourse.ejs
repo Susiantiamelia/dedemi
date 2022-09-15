@@ -42,9 +42,11 @@
             <tr>
                 <td><%= index + 1 %> </td>
                 <td><%= element.name %></td>
-                <td><%= element.duration %></td>
+                <td><%= converttime(element.duration) %></td>
                 <td><%= element.category %></td>
-                <td><a href="<%=userid%>/course/<%=element.id%>"><button>Watch Course</button></a></td>
+                <td><a href="/course/sub/<%=element.id%>"><button>Watch Course</button></a> || 
+                    <a href="/course/sub/<%=element.id%>/unsubscribe"><button>unsubscribe</button></a>
+                </td>
             </tr>
         <% }); %> 
     </table>

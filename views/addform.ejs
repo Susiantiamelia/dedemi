@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Form</title>
+</head>
+
+<body>
+    <h2>Course Add Forms</h2>
+
+    <form action="/course/add" method="post">
+        <label for="name">name:</label><br>
+        <input type="text" id="name" name="name" ><br>
+        <label for="name">description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+        <label for="duration">Duration:</label><br>
+        <input type="number" id="duration" name="duration" placeholder="in Minute"><br><br>
+        <label for="category">category:</label><br>
+        <select name="category">
+            <option value="" selected disabled>-- select--</option>
+            <option value="History">History</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Geography">Geography</option>
+            <option value="Biology">Biology</option>
+          </select>
+        <br><br>
+        <label for="link">link:</label><br>
+        <input type="text" id="link" name="link"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <% if(errors) { %>
+        <% let listError = errors.split(",") %> 
+        <% listError.forEach( el =>{ %>
+            <p style="color: red;"><%= el %> </p>
+        <% }) %> 
+        
+    <% } %> 
+    <%  %> 
+</body>
+
+</html>

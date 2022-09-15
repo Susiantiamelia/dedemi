@@ -7,7 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/course/sub"> Your Course </a>
+    <% if(user.role === "Student") { %>
+        <a href="/course/sub"> Your Course </a>
+    <% } %>
     <a href="/course/all"> All Course </a>
     
 </body>

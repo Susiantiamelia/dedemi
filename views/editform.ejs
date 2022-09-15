@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Form</title>
+</head>
+
+<body>
+    <h2>Course Edit Forms</h2>
+
+    <form action="/course/<%=data.id%>/edit" method="post">
+        <label for="name">name:</label><br>
+        <input type="text" id="name" name="name" value="<%=data.name%>"><br>
+        <label for="name">description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50"> <%=data.description%> </textarea><br><br>
+        <label for="duration">Duration:</label><br>
+        <input type="number" id="duration" name="duration" placeholder="in Minute" value="<%=data.duration%>"><br><br>
+        <label for="category">category:</label><br>
+        <select name="category">
+            <option value="History" <%= data.category === "History" ? "selected" : "" %> >History</option>
+            <option value="Mathematics" <%= data.category === "Mathematics" ? "selected" : "" %> >Mathematics</option>
+            <option value="Geography" <%= data.category === "Geography" ? "selected" : "" %> >Geography</option>
+            <option value="Biology" <%= data.category === "Biology" ? "selected" : "" %> >Biology</option>
+          </select>
+        <br><br>
+        <label for="link">link:</label><br>
+        <input type="text" id="link" name="link" value="<%=data.link%>"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
