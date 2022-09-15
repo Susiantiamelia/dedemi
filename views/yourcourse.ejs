@@ -27,9 +27,9 @@
 </head>
 
 <body>
-    <a href="/course/add" ><button>Add Course</button></a>
 
-    <h2>View All Course</h2>
+    <h2>View All Your Course</h2>
+
     <table>
         <tr>
             <th>No.</th>
@@ -44,13 +44,7 @@
                 <td><%= element.name %></td>
                 <td><%= element.duration %></td>
                 <td><%= element.category %></td>
-                <td>
-                    <% if(user.role === "Student") { %>
-                        <a href="/course/<%=element.id%>/subscribe"><button>Subscribe</button></a>
-                    <% } else { %>
-                        <a href="/course/<%=element.id%>/edit"><button>Edit Course</button></a>
-                     <% } %> 
-                </td>
+                <td><a href="<%=userid%>/course/<%=element.id%>"><button>Watch Course</button></a></td>
             </tr>
         <% }); %> 
     </table>
