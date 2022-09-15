@@ -1,0 +1,14 @@
+[
+    {
+        "username" : "krisnaalipp",
+        "email" : "blabla@gmail.com",
+        "password" : "$2a$10$OK2CPneCAr8mY9jArOOL7.WhMa8e8yC1CwvdmKdOS6Zaj0tjYcvwy",
+        "role" : "Instructor"
+    },
+    {
+        "username" : "rizky",
+        "email" : "blabla@gmail.com",
+        "password" : "$2a$10$0tUyidMw.qvehEz38Ge4IOngLqQyNo6yy72cDIrBAVilh4.sYaRI2",
+        "role" : "Instructor"
+    }
+]

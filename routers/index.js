@@ -25,6 +25,7 @@ router.use(function(req,res,next) {
 })
 
 router.get('/', CourseController.home)
+router.get('/chatroom',CourseController.renderChat)
 router.use('/user', usersRouter)
 router.use('/course', courseRouter)
 

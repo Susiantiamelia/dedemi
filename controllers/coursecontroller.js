@@ -170,5 +170,8 @@ class CourseController {
             res.send(err)
         })
     }
+    static renderChat(req,res) {
+        res.render('chatroom')
+    }
 }
 module.exports = CourseController
