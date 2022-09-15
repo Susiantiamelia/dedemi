@@ -31,5 +31,11 @@
         <input type="submit" value="Submit">
     </form>
 </body>
-
+<% if(errors) { %>
+    <% let listError = errors.split(",") %> 
+    <% listError.forEach( el =>{ %>
+        <p style="color: red;"><%= el %> </p>
+    <% }) %> 
+    
+<% } %> 
 </html>

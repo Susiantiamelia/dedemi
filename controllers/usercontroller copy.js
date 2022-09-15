@@ -78,7 +78,7 @@ class UserController {
             }
         })
         .then(result => {
-            res.render('editForm', { profileData : result})
+            res.render('editProfilForm', { profileData : result})
         })
         .catch(err => {
             res.send(err)

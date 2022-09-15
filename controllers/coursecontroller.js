@@ -101,9 +101,11 @@ class CourseController {
     }
     static editCourse(req, res) {
         let courseId = req.params.id
+        let errors = req.query.errors
+        // console.log(courseId);  
         Course.findByPk(courseId)
         .then(data =>{
-            res.render('editform', {data})
+            res.render('editcourseform', {data, errors})
         })
         .catch(err =>{
             res.send(err)
@@ -131,7 +133,7 @@ class CourseController {
                 let error = err.errors.map(element => {
                 return element.message
                }); 
-               res.send(error)
+               res.redirect(`/course/${courseId}/edit?errors=${error}`)
             } else {
                 res.send(err)
             }
@@ -152,7 +154,7 @@ class CourseController {
             res.redirect('/course/sub')
         })   
         .catch(err =>{
-            console.log(err)
+            // console.log(err)
             res.send(err)
         })
     }
