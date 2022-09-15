@@ -26,5 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
+  User.beforeCreate(el => {
+    el.role = 'student'
+  })
   return User;
 };

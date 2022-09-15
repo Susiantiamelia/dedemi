@@ -3,8 +3,8 @@ const UserController = require('../controllers/usercontroller copy')
 const router = express.Router()
 
 
-router.get('/', UserController.profilPage)
+// router.get('/register',UserController.registerForm)
 
-
+// router.get('/', UserController.profilPage)
 
 module.exports = router

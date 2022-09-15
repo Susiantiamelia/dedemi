@@ -6,13 +6,12 @@ const courseRouter = require('./course')
 const UserController = require('../controllers/usercontroller copy')
 
 router.get('/register', UserController.registerForm)
-router.post('/register', UserController.registerHandler)
-router.get('/',(req, res) =>{
-    res.send("home")
-})
-router.use('/user', jobsRouter)
-router.use('/admin', hiringRouter)
-router.use('/course', hiringRouter)
+router.post('/register', UserController.postRegisterForm)
+// router.get('/',(req, res) =>{
+//     res.send("home")
+// })
+// router.use('/user', usersRouter)
+// router.use('/course', courseRouter)
 
 
 
