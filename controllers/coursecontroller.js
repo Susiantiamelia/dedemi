@@ -3,11 +3,11 @@ let {Course, User} = require('../models')
 
 class CourseController {
     static home(req, res){
-        let userid = req.params.id
+        let userid = req.session.user.id
         res.render('home', {userid})
     }
     static yourCourse(req, res) {
-        let userid = 1
+        let userid = req.session.user.id
         Course.findAll({
             include: {
                 model:User,
@@ -26,7 +26,7 @@ class CourseController {
         })
     }
     static listCourse(req,res) {
-        let userid = 2
+        let userid = req.session.user.id
         let data = {}
         Course.findAll(
             {
@@ -62,7 +62,7 @@ class CourseController {
         })
     }
     static detailCourse(req, res) {
-        
+
     }
 }
 module.exports = CourseController
