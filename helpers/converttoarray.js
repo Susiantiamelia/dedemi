@@ -1,6 +1,6 @@
-function convertArray(courseId){
-    let newArray = courseId.map(element => {
-        return element.CourseId
+function convertArray(param1, param2){
+    let newArray = param1.map(element => {
+        return element[param2]
     });
     return newArray
 }

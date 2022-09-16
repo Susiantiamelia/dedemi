@@ -1,17 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <%- include('partial/head', {title: 'Home'}) %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <body>
+    <ul>
+        <li><a href="/"> Home </a></li>
+        <% if(user.role === "Student") { %>
+            <li><a href="/course/sub"> Your Course </a></li>
+        <% } %>
+        <li><a href="/course/all"> All Course </a></li>
+        <li><a href="/user">Profile</a></li>
+        <li><a href="/chatroom">Chat Room</a></li>
+    </ul>
+    <h3>Hai <%= user.role %> <%= user.username %></h3>
     <% if(user.role === "Student") { %>
-        <a href="/course/sub"> Your Course </a>
-    <% } %>
-    <a href="/course/all"> All Course </a>
-    <a href="/user">Profile</a>
-    <a href="/chatroom">Chat Room</a>
+    <div style="height: 400px">
+    <canvas id="myChart" ></canvas>
+</div>
+<% } %>
+    
+    
+    
 </body>
+<script>
+    let barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9"
+        ];
+    const ctx = 'myChart';
+    const myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['History', 'Geography', 'Mathematics', 'Biography'],
+            datasets: [{
+                label: '#list of selected Course',
+                data: "<%=count%>",
+                backgroundColor: barColors,
+                borderColor: [
+                    '#F08080',
+                    '#E6E6FA',
+                    '#F0FFF0',
+                    '#4B0082',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                },
+            },  
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+    </script>
 </html>

@@ -3,17 +3,25 @@ const converttime = require('../helpers/converttime')
 const humanizeDuration = require("humanize-duration")
 let {Course, User, Users_Course} = require('../models')
 const convertArray = require('../helpers/converttoarray')
+const countTheCourse = require('../helpers/takethecourse')
 
 class CourseController {
     static home(req, res){
         let userid = req.session.user.id
-        User.findByPk(userid)
+        let data = {}
+        User.findByPk(userid,{
+            include:Course
+        })
         .then(user =>{
-            res.render('home', {user})
+            data.course = user.Courses
+            let count =countTheCourse(data.course)
+            console.log(count)
+            res.render('home', {user, count})
         })
     }
     static yourCourse(req, res) {
         let userid = req.session.user.id
+        let data = {}
         Course.findAll({
             include: {
                 model:User,
@@ -23,8 +31,13 @@ class CourseController {
             }
         })
         .then(course =>{
-            // console.log(course)
-            res.render('yourcourse', {course, userid, converttime})
+            data.course = course
+            return User.findByPk(userid)
+        })
+        .then(user =>{
+            data.user= user
+            console.log(data)
+            res.render('yourcourse', {data, userid, converttime})
         })   
         .catch(err =>{
             console.log(err)
@@ -52,7 +65,7 @@ class CourseController {
             })
         })
         .then(courseId =>{
-            data.courseId = convertArray(courseId)
+            data.courseId = convertArray(courseId, "CourseId")
             console.log(data.courseId)
             res.render('course', {data,converttime} )
         })

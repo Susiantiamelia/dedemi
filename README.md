@@ -7,3 +7,4 @@ npm i -g sequelize-cli nodemon
 npm i bscryptjs express-session
 npm install humanize-duration
 npm i socket.io
+npm install chart.js
