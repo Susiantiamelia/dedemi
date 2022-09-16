@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const session = require('express-session')
-const port = 3000
+const PORT = process.env.PORT || 3000
 const router = require('./routers')
 const server = require('http').createServer(app)
 const io = require('socket.io')(server, {cors : {origin : "*"}})
@@ -20,8 +20,8 @@ app.use(router)
 //   console.log(`Example app listening on port ${port}`)
 // })
 
-server.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+server.listen(PORT, () => {
+  console.log(`Example app listening on PORT ${PORT}`)
 })
 
 
