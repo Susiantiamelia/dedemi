@@ -110,7 +110,13 @@ class UserController {
         })
     }
     static logout(req,res) {
-        res.redirect('/login')
+        req.session.destroy(err=>{
+            if(err){
+                res.send(err)
+            } else {
+                res.redirect('/login')
+            }
+        })
     }
     static deleteAccount(req,res) {
         let {id} = req.session.user

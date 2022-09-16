@@ -1,4 +1,4 @@
-let {Op} = require('sequelize')
+// let {Op} = require('sequelize')
 const converttime = require('../helpers/converttime')
 const humanizeDuration = require("humanize-duration")
 let {Course, User, Users_Course} = require('../models')
