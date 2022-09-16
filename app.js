@@ -3,7 +3,7 @@ const app = express()
 const session = require('express-session')
 const PORT = process.env.PORT || 3000
 const router = require('./routers')
-const server = require('https').createServer(app)
+const server = require('http').createServer(app)
 const io = require('socket.io')(server, {cors : {origin : "*"}})
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}));
