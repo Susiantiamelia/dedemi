@@ -6,7 +6,7 @@
     "port": "7351",
     "host": "containers-us-west-82.railway.app",
     "dialect": "postgres"
-  }
+  },
   "test": {
     "username": "root",
     "password": null,
