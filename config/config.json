@@ -1,11 +1,12 @@
 {
-  "development": {
+  "production": {
     "username": "postgres",
-    "password": "postgres",
-    "database": "dedemi",
-    "host": "localhost",
+    "password": "86yhubHdksrN73a90N55",
+    "database": "railway",
+    "port": "7351",
+    "host": "containers-us-west-82.railway.app",
     "dialect": "postgres"
-  },
+  }
   "test": {
     "username": "root",
     "password": null,
@@ -14,15 +15,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable":"DATABASE_URL",
-    "ssl": true,
-    "dialect": "postgres",
-    "protocol": "postgres",
-    "dialectOptions": {
-      "ssl": {
-        "require": true,
-        "rejectUnauthorized": false
-      }
-    }
+    "username": "postgres",
+    "password": "86yhubHdksrN73a90N55",
+    "database": "railway",
+    "port": "7351",
+    "host": "containers-us-west-82.railway.app",
+    "dialect": "postgres"
   }
 }
