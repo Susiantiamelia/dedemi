@@ -1,5 +1,5 @@
 {
-  "production": {
+  "development": {
     "username": "postgres",
     "password": "86yhubHdksrN73a90N55",
     "database": "railway",
